@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <exception>
+#include "my_debugger.h"
 #include "Database.h"
 
 using namespace std;
@@ -14,6 +15,8 @@ void doDemote(Database& db);
 
 int main()
 {
+    log("debug start test");
+
 	Database employeeDB;
 
 	bool done = false;
@@ -21,6 +24,7 @@ int main()
 		int selection = displayMenu();
 		switch (selection) {
 		case 0:
+            log("case0");
 			done = true;
 			break;
 		case 1:
@@ -80,6 +84,7 @@ int displayMenu()
 
 void doHire(Database& db)
 {
+    log("start");
     string firstName;
     string lastName;
 
@@ -89,10 +94,12 @@ void doHire(Database& db)
     cin >> lastName;
     
     db.addEmployee(firstName, lastName);
+    log("end");
 }
 
 void doFire(Database& db)
 {
+    log("start");
     int employeeNumber;
 
     cout << "Employee number? ";
@@ -105,10 +112,12 @@ void doFire(Database& db)
     } catch (const std::logic_error& exception) {
         cerr << "Unable to terminate employee: " << exception.what() << endl;
     }
+    log("end");
 }
 
 void doPromote(Database& db)
 {
+    log("start");
     int employeeNumber;
     int raiseAmount;
 
@@ -123,4 +132,5 @@ void doPromote(Database& db)
     } catch (const std::logic_error& exception) {
         cerr << "Unable to promote employee: " << exception.what() << endl;
     }
+    log("end");
 }
