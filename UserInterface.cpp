@@ -15,7 +15,7 @@ void doDemote(Database& db);
 
 int main()
 {
-    log("debug start test");
+    log("start");
 
 	Database employeeDB;
 
@@ -51,7 +51,8 @@ int main()
 		}
 	}
 
-	return 0;
+    return 0;
+    log("end");
 }
 
 int displayMenu()
