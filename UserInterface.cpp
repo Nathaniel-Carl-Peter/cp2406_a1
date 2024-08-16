@@ -13,6 +13,7 @@ void doFire(Database& db);
 void doPromote(Database& db);
 void doDemote(Database& db);
 
+
 int main()
 {
     log("start");
@@ -45,6 +46,11 @@ int main()
 		case 6:
 			employeeDB.displayFormer();
 			break;
+        
+        case 7:
+			employeeDB = makeNewDB();
+            // DB = Data Base
+			break;
 		default:
 			cerr << "Unknown command." << endl;
 			break;
@@ -74,6 +80,7 @@ int displayMenu()
     cout << "4) List all employees" << endl;
     cout << "5) List all current employees" << endl;
     cout << "6) List all former employees" << endl;
+    cout << "7) Generate new Database" << endl;
     cout << "0) Quit" << endl;
     cout << endl;
     cout << "---> ";
@@ -101,6 +108,7 @@ void doHire(Database& db)
 void doFire(Database& db)
 {
     log("start");
+    
     int employeeNumber;
 
     cout << "Employee number? ";
@@ -113,12 +121,14 @@ void doFire(Database& db)
     } catch (const std::logic_error& exception) {
         cerr << "Unable to terminate employee: " << exception.what() << endl;
     }
+    
     log("end");
 }
 
 void doPromote(Database& db)
 {
     log("start");
+
     int employeeNumber;
     int raiseAmount;
 
@@ -133,5 +143,28 @@ void doPromote(Database& db)
     } catch (const std::logic_error& exception) {
         cerr << "Unable to promote employee: " << exception.what() << endl;
     }
+    
     log("end");
+}
+
+Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
+{
+    vector<string> arrFirst {
+        "James","Bruce","Clark","Anis","Laois",
+        "James2","Bruce2","Clark2","Anis2","Laois02",
+    };
+
+    vector<string> arrMiddle {
+        "P","Wayne","Wynn,","Touden",
+        "P02","Wayne02","Wynn02,","Touden02",
+    };
+
+    Database db;
+        for (const string & firstName: arrFirst)
+        {
+            db.addEmployee(firstName, "Peter");
+        }
+    
+    log("end");
+    return db;
 }

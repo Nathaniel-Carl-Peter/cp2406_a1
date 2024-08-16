@@ -10,3 +10,8 @@ doHire(): end
 doFire(): start
 doFire(): end
 main(): case0
+main(): debug start test
+doHire(): start
+doHire(): end
+main(): case0
+main(): debug start test
