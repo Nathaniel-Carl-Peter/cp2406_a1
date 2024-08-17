@@ -1,8 +1,11 @@
 #include <iostream>
 #include <stdexcept>
 #include <exception>
+
 #include "my_debugger.h"
 #include "Database.h"
+
+// const string Logger::msDebugFileName = "debugfile.txt";
 
 using namespace std;
 using namespace Records;
@@ -13,6 +16,36 @@ void doFire(Database& db);
 void doPromote(Database& db);
 void doDemote(Database& db);
 
+// Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
+Database makeNewDB()
+{
+    vector<string> arrFirst {
+    "first1", "Anis", "Bob1",
+    "first2", "Anis2", "Bob2"
+    };
+
+    vector<string> arrMiddle {
+    "middle1", "Wynn", "Builder",
+    "middle2", "Wynn2", "Builder2",
+    };
+
+    // Database res;
+    // for (const string & firstName: arrFirst)
+    // {
+    //     db.addEmployee(firstName, "Peter");
+    // }
+
+    Database db;
+    for (const string & firstName: arrFirst){
+        for (const string& middlename: arrFirst){
+        db.addEmployee(firstName, "Peter");
+        }
+        
+    }
+
+    log("end");
+    return db;
+}
 
 int main()
 {
@@ -145,26 +178,4 @@ void doPromote(Database& db)
     }
     
     log("end");
-}
-
-Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
-{
-    vector<string> arrFirst {
-        "James","Bruce","Clark","Anis","Laois",
-        "James2","Bruce2","Clark2","Anis2","Laois02",
-    };
-
-    vector<string> arrMiddle {
-        "P","Wayne","Wynn,","Touden",
-        "P02","Wayne02","Wynn02,","Touden02",
-    };
-
-    Database db;
-        for (const string & firstName: arrFirst)
-        {
-            db.addEmployee(firstName, "Peter");
-        }
-    
-    log("end");
-    return db;
 }
