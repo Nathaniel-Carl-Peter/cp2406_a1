@@ -9,7 +9,7 @@ namespace Records {
 	{
 	public:
 		Employee() = default;
-		// Employee(const std::string& firstName, const std::string& lastName);
+		Employee(const std::string& firstName, const std::string& lastName);
 
 		Employee(const std::string& firstName,
 				const std::string& middleName,
@@ -25,8 +25,8 @@ namespace Records {
 		void setFirstName(const std::string& firstName);
 		const std::string& getFirstName() const;
 
-		void setMiddleName(const std::string& middleName);
-		const std::string& getMiddleName() const;
+		// void setMiddleName(const std::string& middleName);
+		// const std::string& getMiddleName() const;
 
 		void setLastName(const std::string& lastName);
 		const std::string& getLastName() const;

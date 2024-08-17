@@ -5,11 +5,12 @@ using namespace std;
 
 namespace Records {
 
-	// Employee::Employee(const std::string& firstName, const std::string& lastName)
-	// 	: mFirstName(firstName)
-	// 	, mLastName(lastName)
-	// {
-	// }
+	Employee::Employee(const std::string& firstName, const std::string& lastName)
+		: mFirstName(firstName)
+		, mLastName(lastName)
+	{
+	}
+	
 	
 	//Construct overiden
 	Employee::Employee(
@@ -62,16 +63,6 @@ namespace Records {
 	{
 		return mFirstName;
 	}
-	
-	// void Employee::setMiddleName(const string& middleName)
-	// {
-	// 	mMiddleName = middleName;
-	// }
-
-	// const string& Employee::getMiddleName() const
-	// {
-	// 	return mMiddleName;
-	// }
 
 	void Employee::setLastName(const string& lastName)
 	{
