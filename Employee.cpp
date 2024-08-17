@@ -10,6 +10,17 @@ namespace Records {
 		, mLastName(lastName)
 	{
 	}
+	
+	//Construct overiden
+	Employee::Employee(
+		const std::string& firstName,
+		const std::string& middleName, 
+		const std::string& lastName)
+		: mFirstName(firstName)
+		,mMiddleName(middleName)
+		, mLastName(lastName)
+	{
+	}
 
 	void Employee::promote(int raiseAmount)
 	{
@@ -51,6 +62,16 @@ namespace Records {
 	{
 		return mFirstName;
 	}
+	
+	// void Employee::setMiddleName(const string& middleName)
+	// {
+	// 	mMiddleName = middleName;
+	// }
+
+	// const string& Employee::getMiddleName() const
+	// {
+	// 	return mMiddleName;
+	// }
 
 	void Employee::setLastName(const string& lastName)
 	{

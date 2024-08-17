@@ -19,14 +19,20 @@ void doDemote(Database& db);
 // Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
 Database makeNewDB()
 {
+    log("start");
     vector<string> arrFirst {
-    "first1", "Anis", "Bob1",
-    "first2", "Anis2", "Bob2"
+    "first1", "Anis",
+    "first2", "Anis2"
     };
 
     vector<string> arrMiddle {
-    "middle1", "Wynn", "Builder",
-    "middle2", "Wynn2", "Builder2",
+    "middle1", "Wynn",
+    "middle2", "Wynn2",
+    };
+
+    vector<string> arrLast {
+    "last1", "Palettia",
+    "last2", "Palettia2",
     };
 
     // Database res;
@@ -37,10 +43,11 @@ Database makeNewDB()
 
     Database db;
     for (const string & firstName: arrFirst){
-        for (const string& middlename: arrFirst){
-        db.addEmployee(firstName, "Peter");
+        for (const string& middleName: arrMiddle){
+            for (const string& lastName: arrLast){
+                db.addEmployee(firstName, middleName, lastName);
+            }
         }
-        
     }
 
     log("end");

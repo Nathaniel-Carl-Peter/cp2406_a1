@@ -11,6 +11,10 @@ namespace Records {
 		Employee() = default;
 		Employee(const std::string& firstName, const std::string& lastName);
 
+		Employee(const std::string& firstName,
+				const std::string& middleName,
+				const std::string& lastName);
+
 		void promote(int raiseAmount = 1000);
 		void demote(int demeritAmount = 1000);
 		void hire(); // Hires or rehires the employee
@@ -33,7 +37,9 @@ namespace Records {
 		bool isHired() const;
 
 	private:
+		// Fields created for Employee
 		std::string mFirstName;
+		std::string mMiddleName;
 		std::string mLastName;
 		int mEmployeeNumber = -1;
 		int mSalary = kDefaultStartingSalary;

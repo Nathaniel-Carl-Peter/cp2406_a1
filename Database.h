@@ -12,6 +12,12 @@ namespace Records {
 	public:
 		Employee& addEmployee(const std::string& firstName,
 							  const std::string& lastName);
+		
+		// Function overide occuring
+		Employee& addEmployee(
+			const std::string& firstName,
+			const std::string& middleName,
+			const std::string& lastName);
 		Employee& getEmployee(int employeeNumber);
 		Employee& getEmployee(const std::string& firstName,
 							  const std::string& lastName);
@@ -21,7 +27,11 @@ namespace Records {
 		void displayFormer() const;
 
 	private:
+		std::string mFirstName;
+		std::string MiddleName;
+		std::string mLastName;
 		std::vector<Employee> mEmployees;
 		int mNextEmployeeNumber = kFirstEmployeeNumber;
+		bool mHired = false;
 	};
 }
