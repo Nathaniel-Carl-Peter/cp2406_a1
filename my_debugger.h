@@ -12,27 +12,27 @@ using namespace std; // I understand its not advisable.
 
 class Logger
 {
-public:
-	template<typename... Args>
-	static void log(const Args&... args)
-	{
-		ofstream logfile(msDebugFileName, ios_base::app);
-		if (logfile.fail()) {
-			cerr << "Unable to open debug file!" << endl;
-			return;
+	public:
+		template<typename... Args>
+		static void log(const Args&... args)
+		{
+			ofstream logfile(msDebugFileName, ios_base::app);
+			if (logfile.fail()) {
+				cerr << "Unable to open debug file!" << endl;
+				return;
+			}
+			// Use a C++17 unary right fold, see Chapter 22.
+			((logfile << args), ...);
+			logfile << endl;
+
+			((cout << args), ...);
+			cout << endl;
 		}
-		// Use a C++17 unary right fold, see Chapter 22.
-		((logfile << args), ...);
-		logfile << endl;
 
-		((cout << args), ...);
-		cout << endl;
-	}
-
-private:
-	// static const string msDebugFileName = "debugfile2.txt";
-	// static const string Logger::msDebugFileName = "debugfile2.txt";
-	static const string msDebugFileName;
+	private:
+		// static const string msDebugFileName = "debugfile2.txt";
+		// static const string Logger::msDebugFileName = "debugfile2.txt";
+		static const string msDebugFileName;
 };
 	
 	// const string Logger::msDebugFileName = "debugfile.txt";
