@@ -5,7 +5,7 @@
 #include "my_debugger.h"
 #include "Database.h"
 
-// const string Logger::msDebugFileName = "debugfile.txt";
+const string Logger::msDebugFileName = "debugfile.txt";
 
 using namespace std;
 using namespace Records;
