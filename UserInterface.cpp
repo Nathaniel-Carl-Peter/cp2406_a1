@@ -16,23 +16,27 @@ void doFire(Database& db);
 void doPromote(Database& db);
 void doDemote(Database& db);
 
-// Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
-Database makeNewDB()
+Database makeNewDB();
+Database loadFile(const string& fileName);
+// void makenNewDB()
+
+Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
+// Database makeNewDB()
 {
     log("start");
     vector<string> arrFirst {
-    "first1", "Anis",
-    "first2", "Anis2"
+    "first1", "Anisphia","John",
+    "first2", "Anisphia2","John2",
     };
 
     vector<string> arrMiddle {
-    "middle1", "Wynn",
-    "middle2", "Wynn2",
+    "middle1", "Wynn","Mitchell",
+    "middle2", "Wynn2","Mitchell2",
     };
 
     vector<string> arrLast {
-    "last1", "Palettia",
-    "last2", "Palettia2",
+    "last1", "Palettia","Doe",
+    "last2", "Palettia2","Doe2",
     };
 
     // Database res;
