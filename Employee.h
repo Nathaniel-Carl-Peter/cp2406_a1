@@ -31,8 +31,15 @@ namespace Records {
 		void setLastName(const std::string& lastName);
 		const std::string& getLastName() const;
 
-		void setAddress(const std::string& lastName);
-		const std::string& getAddress() const;
+		void setAddress(const std::string& address){
+			mAddress = address;
+		}
+		
+		// const std::string& getAddress() const;
+		const std::string& getAddress() const{
+			return mAddress;
+		}
+
 
 		void setEmployeeNumber(int employeeNumber);
 		int getEmployeeNumber() const;
