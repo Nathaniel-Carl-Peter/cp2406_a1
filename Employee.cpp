@@ -64,6 +64,16 @@ namespace Records {
 		return mFirstName;
 	}
 
+		void Employee::setMiddleName(const string& middleName)
+	{
+		mMiddleName = middleName;
+	}
+
+	const string& Employee::getMiddleName() const
+	{
+		return mMiddleName;
+	}
+
 	void Employee::setLastName(const string& lastName)
 	{
 		mLastName = lastName;
