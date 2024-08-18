@@ -47,13 +47,19 @@ Database makeNewDB()
     // }
 
     Database db;
+    int count = 0;
     for (const string & firstName: arrFirst){
-        for (const string& middleName: arrMiddle){
+        for (const string& middleName: arrMiddle)
+        {
             for (const string& lastName: arrLast){
                 // random street number
                 // string
-                db.addEmployee(firstName, middleName, lastName);
-                // empl.setAdress();
+                count ++;
+                string countStr = to_string(count);
+                Employee& empl= db.addEmployee(firstName, middleName, lastName);
+                // string address = to_string(count);
+                string address = countStr + "Street#" + countStr;
+                empl.setAddress(address);
             }
         }
     }
