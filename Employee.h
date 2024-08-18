@@ -44,6 +44,7 @@ namespace Records {
 		std::string mFirstName;
 		std::string mMiddleName;
 		std::string mLastName;
+		std::string mAddress;
 		int mEmployeeNumber = -1;
 		int mSalary = kDefaultStartingSalary;
 		bool mHired = false;
