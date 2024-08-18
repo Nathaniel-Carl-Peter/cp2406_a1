@@ -49,6 +49,8 @@ namespace Records {
 		cout << "-------------------------" << endl;
 		cout << (isHired() ? "Current Employee" : "Former Employee") << endl;
 		cout << "Employee Number: " << getEmployeeNumber() << endl;
+		cout << "Middle Name: " << getMiddleName() << endl;
+		cout << "Address: " << getAddress() << endl;
 		cout << "Salary: $" << getSalary() << endl;
 		cout << endl;
 	}
