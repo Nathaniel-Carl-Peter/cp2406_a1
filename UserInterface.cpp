@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <stdexcept>
 #include <exception>
 
@@ -98,10 +99,18 @@ int main()
 			employeeDB = makeNewDB();
             // DB = Data Base
 			break;
-        case 7:
+        case 8:
             //Save to file
-			employeeDB = savetoFile()
+            dbFileName = selectInputFilename(dbFilename);
+			employeeDB.savetoFile(dbFilename);
 			break;
+        case 9:
+            dbFileName = selectInputFilename(dbFilename);
+			employeeDB = loadFromFile(dbFilename);
+			break;
+        case 11:
+            employeeDB.searchMenu();
+            break;
 		default:
 			cerr << "Unknown command." << endl;
 			break;
