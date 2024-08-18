@@ -148,10 +148,12 @@ int displayMenu()
     cout << "5) List all current employees" << endl;
     cout << "6) List all former employees" << endl;
     cout << "7) Generate new Database" << endl;
+    cout << "8) Save Database to File" << endl;
+    cout << "8) Load database from file" << endl;
     cout << "0) Quit" << endl;
     cout << endl;
     cout << "---> ";
-    
+
 	cin >> selection;
     
 	return selection;
