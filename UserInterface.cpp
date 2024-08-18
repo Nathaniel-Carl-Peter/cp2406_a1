@@ -20,8 +20,8 @@ Database makeNewDB();
 Database loadFile(const string& fileName);
 // void makenNewDB()
 
-Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
-// Database makeNewDB()
+// Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
+Database makeNewDB()
 {
     log("start");
     vector<string> arrFirst {
@@ -97,6 +97,10 @@ int main()
         case 7:
 			employeeDB = makeNewDB();
             // DB = Data Base
+			break;
+        case 7:
+            //Save to file
+			employeeDB = savetoFile()
 			break;
 		default:
 			cerr << "Unknown command." << endl;
