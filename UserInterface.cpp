@@ -73,6 +73,7 @@ int main()
     log("start");
 
 	Database employeeDB;
+    string dbFilename = "save_db.txt";
 
 	bool done = false;
 	while (!done) {
@@ -105,11 +106,11 @@ int main()
 			employeeDB = makeNewDB();
             // DB = Data Base
 			break;
-        // case 8:
-        //     //Save to file
-        //     dbFileName = selectInputFilename(dbFilename);
-		// 	employeeDB.savetoFile(dbFilename);
-		// 	break;
+        case 8:
+            //Save to file
+            dbFileName = selectInputFilename(dbFilename);
+			employeeDB.savetoFile(dbFilename);
+			break;
         // case 9:
         //     dbFileName = selectInputFilename(dbFilename);
 		// 	employeeDB = loadFromFile(dbFilename);
