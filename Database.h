@@ -23,7 +23,7 @@ namespace Records {
 							  const std::string& lastName);
 
 		void displayAll() const;
-		void savetoFile(const string& fileName) const;
+		// void savetoFile(const string& fileName) const;
 		void displayCurrent() const;
 		void displayFormer() const;
 

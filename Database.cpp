@@ -66,18 +66,18 @@ namespace Records {
 		}
 	}
 
-	void Database::savetoFile(string_view fileName) const
-{
-	if (fileName.size() == 0)
-	{
-		/* code */
-	}
+// 	void Database::savetoFile(string_view fileName) const
+// {
+// 	if (fileName.size() == 0)
+// 	{
+// 		/* code */
+// 	}
 	
-	ofstream outFile{ fileName.data(), ios_base::trunc };
-	if (!outFile) {
-		cerr << "Cannot open file: " << fileName << endl;
-		return;
-	}
+// 	ofstream outFile{ fileName.data(), ios_base::trunc };
+// 	if (!outFile) {
+// 		cerr << "Cannot open file: " << fileName << endl;
+// 		return;
+// 	}
 
 	void Database::displayCurrent() const
 	{

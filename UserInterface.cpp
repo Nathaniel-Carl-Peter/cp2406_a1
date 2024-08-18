@@ -99,18 +99,18 @@ int main()
 			employeeDB = makeNewDB();
             // DB = Data Base
 			break;
-        case 8:
-            //Save to file
-            dbFileName = selectInputFilename(dbFilename);
-			employeeDB.savetoFile(dbFilename);
-			break;
-        case 9:
-            dbFileName = selectInputFilename(dbFilename);
-			employeeDB = loadFromFile(dbFilename);
-			break;
-        case 11:
-            employeeDB.searchMenu();
-            break;
+        // case 8:
+        //     //Save to file
+        //     dbFileName = selectInputFilename(dbFilename);
+		// 	employeeDB.savetoFile(dbFilename);
+		// 	break;
+        // case 9:
+        //     dbFileName = selectInputFilename(dbFilename);
+		// 	employeeDB = loadFromFile(dbFilename);
+		// 	break;
+        // case 11:
+        //     employeeDB.searchMenu();
+        //     break;
 		default:
 			cerr << "Unknown command." << endl;
 			break;
