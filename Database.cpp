@@ -66,11 +66,17 @@ namespace Records {
 		}
 	}
 
-	void Database::savetoFile(const string& fileName) const
+	void Database::savetoFile(string_view fileName) const
+{
+	if (fileName.size() == 0)
 	{
-		for (const auto& employee : mEmployees) {
-			employee.display();
-		}
+		/* code */
+	}
+	
+	ofstream outFile{ fileName.data(), ios_base::trunc };
+	if (!outFile) {
+		cerr << "Cannot open file: " << fileName << endl;
+		return;
 	}
 
 	void Database::displayCurrent() const
