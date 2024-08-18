@@ -66,6 +66,13 @@ namespace Records {
 		}
 	}
 
+	void Database::savetoFile(const string& fileName) const
+	{
+		for (const auto& employee : mEmployees) {
+			employee.display();
+		}
+	}
+
 	void Database::displayCurrent() const
 	{
 		for (const auto& employee : mEmployees) {
