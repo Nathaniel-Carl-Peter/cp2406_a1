@@ -216,12 +216,12 @@ string selectInputFilename(const string& oldName){
         cout << "Old file name -->" << oldName << endl;
         cout << "Enter 0 to EXIT -->";
         cout << "Enter file name -->";
-        
         cin >> result;
+
         cout << "Entered file name -->" << result << endl;
 
         // exit process
-        if (result = "0")
+        if (result == "0")
         {
             cout << "Process cancel. Nothing was added";
             return "";
@@ -234,6 +234,7 @@ string selectInputFilename(const string& oldName){
         inFile.open(result);
         if(inFile) {
             cout<<"file exists";
+            return result;
         } else {
             cout<<"file doesn't exist. Try Again" << endl;
         }
