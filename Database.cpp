@@ -79,6 +79,27 @@ namespace Records {
 // 		return;
 // 	}
 
+	void Database::saveToFile(const string& fileName) const
+	{
+		if(fileName.size() == 0)
+		{
+			cout << "Ignore saving empty file name" << endl;
+		}
+
+		ofstream dbfile(fileName, ios_base::trunc);
+		if (dbfile.fail()) {
+			cerr << "Unable to open debug file!" << endl;
+			return;
+		}
+		
+		dbfile << "EmployeeNumber" << ", " << endl;
+		for (const auto& employee : mEmployees) 
+		{
+			string emplNumStr = to_string(employee.getEmployeeNumber());
+			dbfile << emplNumStr << ", " << endl;
+		}
+	}
+
 	void Database::displayCurrent() const
 	{
 		for (const auto& employee : mEmployees) {
@@ -95,4 +116,34 @@ namespace Records {
 		}
 	}
 
+	void Database::loadFromFile(string_view filename)
+{
+	ifstream inFile{ filename.data() };
+	if (!inFile) {
+		cerr << "Cannot open file: " << filename << endl;
+		return;
+	}
+
+	while (inFile) {
+		// Read line by line, so we can skip empty lines.
+		// The last line in the file is empty, for example.
+		string line;
+		getline(inFile, line);
+		if (line.empty()) { // Skip empty lines
+			continue;
+		}
+
+		// Make a string stream and parse it.
+		istringstream inLine{ line };
+		string firstName, lastName, initials;
+		inLine >> quoted(firstName) >> quoted(lastName) >> quoted(initials);
+		if (inLine.bad()) {
+			cerr << "Error reading person. Ignoring." << endl;
+			continue;
+		}
+
+		// Create a person and add it to the database.
+		m_persons.push_back(Person{ move(firstName), move(lastName), move(initials) });
+	}
+}
 }

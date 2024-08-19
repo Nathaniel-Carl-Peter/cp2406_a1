@@ -28,8 +28,10 @@ namespace Records {
 		void setMiddleName(const std::string& middleName);
 		const std::string& getMiddleName() const;
 
+
 		void setLastName(const std::string& lastName);
 		const std::string& getLastName() const;
+
 
 		void setAddress(const std::string& address){
 			mAddress = address;

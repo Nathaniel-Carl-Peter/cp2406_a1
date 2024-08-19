@@ -108,13 +108,13 @@ int main()
 			break;
         case 8:
             //Save to file
-            dbFileName = selectInputFilename(dbFilename);
-			employeeDB.savetoFile(dbFilename);
+            // dbFilename = selectInputFilename(dbFilename);
+			employeeDB.saveToFile(dbFilename);
 			break;
-        // case 9:
+        case 9:
         //     dbFileName = selectInputFilename(dbFilename);
-		// 	employeeDB = loadFromFile(dbFilename);
-		// 	break;
+			employeeDB = loadFromFile(dbFilename);
+			break;
         // case 11:
         //     employeeDB.searchMenu();
         //     break;
