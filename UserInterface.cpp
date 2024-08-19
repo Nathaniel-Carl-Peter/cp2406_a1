@@ -68,6 +68,41 @@ Database makeNewDB()
     return db;
 }
 
+// string selectInputFilename(const string& oldName){
+
+//     string result;
+//     bool done =false;
+//     while (!done)
+//     {
+//         cout << "Old file name -->" << oldName << endl;
+//         cout << "Enter 0 to EXIT -->";
+//         cout << "Enter file name -->";
+//         cin >> result;
+
+//         cout << "Entered file name -->" << result << endl;
+
+//         // exit process
+//         if (result == "0")
+//         {
+//             cout << "Process cancel. Nothing was added";
+//             return "";
+//         }
+        
+//         // check if file exist
+
+//         /* try to open file to read */
+//         ifstream inFile;
+//         inFile.open(result);
+//         if(inFile) {
+//             cout<<"file exists";
+//             return result;
+//         } else {
+//             cout<<"file doesn't exist. Try Again" << endl;
+//         }
+//     }
+    
+// }
+
 int main()
 {
     log("start");
@@ -113,8 +148,8 @@ int main()
 			break;
         case 9:
         //     dbFileName = selectInputFilename(dbFilename);
-			employeeDB = loadFromFile(dbFilename);
-			break;
+			// employeeDB = loadFromFile(dbFilename);
+			// break;
         // case 11:
         //     employeeDB.searchMenu();
         //     break;
@@ -216,40 +251,7 @@ void doPromote(Database& db)
     log("end");
 }
 
-string selectInputFilename(const string& oldName){
 
-    string result;
-    bool done =false;
-    while (!done)
-    {
-        cout << "Old file name -->" << oldName << endl;
-        cout << "Enter 0 to EXIT -->";
-        cout << "Enter file name -->";
-        cin >> result;
-
-        cout << "Entered file name -->" << result << endl;
-
-        // exit process
-        if (result == "0")
-        {
-            cout << "Process cancel. Nothing was added";
-            return "";
-        }
-        
-        // check if file exist
-
-        /* try to open file to read */
-        ifstream inFile;
-        inFile.open(result);
-        if(inFile) {
-            cout<<"file exists";
-            return result;
-        } else {
-            cout<<"file doesn't exist. Try Again" << endl;
-        }
-    }
-    
-}
 // savetoFile(){
 
 // }

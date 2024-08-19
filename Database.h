@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include "Employee.h"
 
@@ -23,8 +24,8 @@ namespace Records {
 							  const std::string& lastName);
 
 		void displayAll() const;
-		void saveToFile(const string& fileName) const;
-		void loadFromFile(string_view filename);
+		void saveToFile(const std::string& fileName) const;
+		// void loadFromFile(string_view filename);
 		void displayCurrent() const;
 		void displayFormer() const;
 
