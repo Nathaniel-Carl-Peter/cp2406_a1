@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
-
-
+#include <string>
+#include <algorithm>
 #include "my_debugger.h"
 #include "Database.h"
 
@@ -67,19 +67,6 @@ namespace Records {
 		}
 	}
 
-// 	void Database::savetoFile(string_view fileName) const
-// {
-// 	if (fileName.size() == 0)
-// 	{
-// 		/* code */
-// 	}
-	
-// 	ofstream outFile{ fileName.data(), ios_base::trunc };
-// 	if (!outFile) {
-// 		cerr << "Cannot open file: " << fileName << endl;
-// 		return;
-// 	}
-
 	void Database::saveToFile(const string& fileName) const
 	{
 		if(fileName.size() == 0)
@@ -93,11 +80,19 @@ namespace Records {
 			return;
 		}
 		
-		dbFile << "EmployeeNumber" << ", " << endl;
+		dbFile << "EmployeeNumber";
+		dbFile << ", " << "Address";
 		for (const auto& employee : mEmployees) 
 		{
 			string emplNumStr = to_string(employee.getEmployeeNumber());
-			dbFile << emplNumStr << ", " << endl;
+			dbFile << emplNumStr;
+			string addr = employee.getAddress();
+
+			std::replace( addr.begin(), addr.end(), ',', ' ');
+
+			dbFile << ", " << addr;
+			dbFile << endl;
+			
 		}
 	}
 
