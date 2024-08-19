@@ -69,10 +69,10 @@ namespace Records {
 
 	void Database::saveToFile(const string& fileName) const
 	{
-		if(fileName.size() == 0)
-		{
-			cout << "Ignore saving empty file name" << endl;
-		}
+		// if(fileName.size() == 0)
+		// {
+		// 	cout << "Ignore saving empty file name" << endl;
+		// }
 
 		ofstream dbFile(fileName, ios_base::trunc);
 		if (dbFile.fail()) {
@@ -112,34 +112,85 @@ namespace Records {
 		}
 	}
 
-// 	void Database::loadFromFile(string_view filename)
-// {
-// 	ifstream inFile{ filename.data() };
-// 	if (!inFile) {
-// 		cerr << "Cannot open file: " << filename << endl;
-// 		return;
-// 	}
+	Database loadFile(const string& fileName)
+	{
+		Database db;
+		// if(fileName.size() == 0)
+		// {
+		// 	cout << "Ignore saving empty file name" << endl;
+		// }
 
-// 	while (inFile) {
-// 		// Read line by line, so we can skip empty lines.
-// 		// The last line in the file is empty, for example.
-// 		string line;
-// 		getline(inFile, line);
-// 		if (line.empty()) { // Skip empty lines
-// 			continue;
-// 		}
+		ifstream dbFile(fileName, ios_base::in);
+		if (dbFile.fail()) {
+			cerr << "Unable to open file!" << fileName << endl;
+			return db;
+		}
+		
+		string header;
+		getline(dbFile, header);
+		cout << header << endl;
+		log("header");
 
-// 		// Make a string stream and parse it.
-// 		istringstream inLine{ line };
-// 		string firstName, lastName, initials;
-// 		inLine >> quoted(firstName) >> quoted(lastName) >> quoted(initials);
-// 		if (inLine.bad()) {
-// 			cerr << "Error reading person. Ignoring." << endl;
-// 			continue;
-// 		}
+		// for (const auto& employee : mEmployees) 
+		// {
+		// 	string emplNumStr = to_string(employee.getEmployeeNumber());
+		// 	dbFile << emplNumStr;
+		// 	string addr = employee.getAddress();
 
-// 		// Create a person and add it to the database.
-// 		m_persons.push_back(Person{ move(firstName), move(lastName), move(initials) });
-// 	}
-// }
+		// 	std::replace( addr.begin(), addr.end(), ',', ' ');
+
+		// 	dbFile << ", " << addr;
+		// 	dbFile << endl;
+			
+		// }
+		return db;
+	}
+
+	Database makeNewDB()
+	{
+		log("start");
+		vector<string> arrFirst {
+		"first1", "Anisphia","John",
+		"first2", "Anisphia2","John2",
+		};
+
+		vector<string> arrMiddle {
+		"middle1", "Wynn","Mitchell",
+		"middle2", "Wynn2","Mitchell2",
+		};
+
+		vector<string> arrLast {
+		"last1", "Palettia","Doe",
+		"last2", "Palettia2","Doe2",
+		};
+
+		// Database res;
+		// for (const string & firstName: arrFirst)
+		// {
+		//     db.addEmployee(firstName, "Peter");
+		// }
+
+		Database db;
+		int count = 0;
+		for (const string & firstName: arrFirst){
+			for (const string& middleName: arrMiddle)
+			{
+				for (const string& lastName: arrLast){
+					// random street number
+					// string
+					count ++;
+					string countStr = to_string(count);
+					Employee& empl= db.addEmployee(firstName, middleName, lastName);
+					// string address = to_string(count);
+					string address = countStr + "Street#" + countStr;
+					empl.setAddress(address);
+				}
+			}
+		}
+
+		log("end");
+		return db;
+	}
+
+
 }

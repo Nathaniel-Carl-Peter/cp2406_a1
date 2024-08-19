@@ -25,7 +25,7 @@ namespace Records {
 
 		void displayAll() const;
 		void saveToFile(const std::string& fileName) const;
-		// void loadFromFile(string_view filename);
+		void loadFromFile(string_view filename);
 		void displayCurrent() const;
 		void displayFormer() const;
 
@@ -37,4 +37,7 @@ namespace Records {
 		int mNextEmployeeNumber = kFirstEmployeeNumber;
 		bool mHired = false;
 	};
+
+	Database makeNewDB();
+	Database loadFile(const string& fileName);
 }

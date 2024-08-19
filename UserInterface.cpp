@@ -17,56 +17,56 @@ void doFire(Database& db);
 void doPromote(Database& db);
 void doDemote(Database& db);
 
-Database makeNewDB();
-Database loadFile(const string& fileName);
+// Database makeNewDB();
+// Database loadFile(const string& fileName);
 // void makenNewDB()
 
 // Database makeNewDB(int nFirst =20, int nMiddle =20, int nLastname =20)
-Database makeNewDB()
-{
-    log("start");
-    vector<string> arrFirst {
-    "first1", "Anisphia","John",
-    "first2", "Anisphia2","John2",
-    };
+// Database makeNewDB()
+// {
+//     log("start");
+//     vector<string> arrFirst {
+//     "first1", "Anisphia","John",
+//     "first2", "Anisphia2","John2",
+//     };
 
-    vector<string> arrMiddle {
-    "middle1", "Wynn","Mitchell",
-    "middle2", "Wynn2","Mitchell2",
-    };
+//     vector<string> arrMiddle {
+//     "middle1", "Wynn","Mitchell",
+//     "middle2", "Wynn2","Mitchell2",
+//     };
 
-    vector<string> arrLast {
-    "last1", "Palettia","Doe",
-    "last2", "Palettia2","Doe2",
-    };
+//     vector<string> arrLast {
+//     "last1", "Palettia","Doe",
+//     "last2", "Palettia2","Doe2",
+//     };
 
-    // Database res;
-    // for (const string & firstName: arrFirst)
-    // {
-    //     db.addEmployee(firstName, "Peter");
-    // }
+//     // Database res;
+//     // for (const string & firstName: arrFirst)
+//     // {
+//     //     db.addEmployee(firstName, "Peter");
+//     // }
 
-    Database db;
-    int count = 0;
-    for (const string & firstName: arrFirst){
-        for (const string& middleName: arrMiddle)
-        {
-            for (const string& lastName: arrLast){
-                // random street number
-                // string
-                count ++;
-                string countStr = to_string(count);
-                Employee& empl= db.addEmployee(firstName, middleName, lastName);
-                // string address = to_string(count);
-                string address = countStr + "Street#" + countStr;
-                empl.setAddress(address);
-            }
-        }
-    }
+//     Database db;
+//     int count = 0;
+//     for (const string & firstName: arrFirst){
+//         for (const string& middleName: arrMiddle)
+//         {
+//             for (const string& lastName: arrLast){
+//                 // random street number
+//                 // string
+//                 count ++;
+//                 string countStr = to_string(count);
+//                 Employee& empl= db.addEmployee(firstName, middleName, lastName);
+//                 // string address = to_string(count);
+//                 string address = countStr + "Street#" + countStr;
+//                 empl.setAddress(address);
+//             }
+//         }
+//     }
 
-    log("end");
-    return db;
-}
+//     log("end");
+//     return db;
+// }
 
 // string selectInputFilename(const string& oldName){
 
@@ -148,8 +148,8 @@ int main()
 			break;
         case 9:
         //     dbFileName = selectInputFilename(dbFilename);
-			// employeeDB = loadFromFile(dbFilename);
-			// break;
+			employeeDB = loadFromFile(dbFilename);
+			break;
         // case 11:
         //     employeeDB.searchMenu();
         //     break;
