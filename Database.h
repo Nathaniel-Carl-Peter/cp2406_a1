@@ -24,6 +24,7 @@ namespace Records {
 
 		void displayAll() const;
 		void saveToFile(const string& fileName) const;
+		void loadFromFile(string_view filename);
 		void displayCurrent() const;
 		void displayFormer() const;
 
