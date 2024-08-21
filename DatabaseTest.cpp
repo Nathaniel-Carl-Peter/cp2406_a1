@@ -3,7 +3,7 @@
 
 using namespace std;
 using namespace Records;
-/*
+
 int main()
 {
     Database myDB;
@@ -29,4 +29,3 @@ int main()
     
 	return 0;
 }
-*/

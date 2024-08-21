@@ -8,6 +8,9 @@ namespace Records {
 	class Employee
 	{
 	public:
+		static const size_t CSV_INDEX_EMPLOYEE_NUM = 0;
+		static const size_t CSV_INDEX_ADDRESS = 1;
+		
 		Employee() = default;
 		Employee(const std::string& firstName, const std::string& lastName);
 
