@@ -337,7 +337,7 @@ namespace Records
 			if (pos == string::npos) {
 				continue;
 			}
-			cout << firstName << endl;1
+			cout << firstName << endl;
 			result.addEmployee(e);
 		}
 		return result;
