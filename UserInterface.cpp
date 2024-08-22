@@ -151,9 +151,9 @@ int main()
         //     dbFileName = selectInputFilename(dbFilename);
 			employeeDB = loadFile(dbFilename);
 			break;
-        // case 11:
-        //     employeeDB.searchMenu();
-        //     break;
+        case 11:
+            // employeeDB.searchEmployee();
+            break;
 		default:
 			cerr << "Unknown command." << endl;
 			break;
