@@ -152,7 +152,7 @@ int main()
 			employeeDB = loadFile(dbFilename);
 			break;
         case 11:
-            employeeDB.searchEmployee();
+            // employeeDB.searchEmployee();
             break;
 		default:
 			cerr << "Unknown command." << endl;

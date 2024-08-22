@@ -86,28 +86,6 @@ namespace Records
 		}
 	}
 
-	void Database::searchEmployee() const
-	{
-		bool done = false;
-		while (!done) {
-			int selection = displayseachMenu();
-		switch (selection) 
-		{
-			case 0:
-				log("case0");
-				done = true;
-				break;
-			// case 1:
-			// 	doHire(employeeDB);
-			// 	break;
-			// case 2:
-			// 	doFire(employeeDB);
-			// 	break;
-		}
-		
-		return 0;
-	}
-
 	int displayseachMenu()
 	{
 		// Note:
@@ -134,6 +112,29 @@ namespace Records
 		return selection;
 	}
 
+	void Database::searchEmployee() const
+	{
+		bool done = false;
+		while (!done) {
+			int selection = displayseachMenu();
+		switch (selection) 
+		{
+			case 0:
+				log("case0");
+				done = true;
+				break;
+			// case 1:
+			// 	doHire(employeeDB);
+			// 	break;
+			// case 2:
+			// 	doFire(employeeDB);
+			// 	break;
+		}
+		
+		return 0;
+	}
+
+	
 
 	void Database::saveToFile(const string &fileName) const
 	{
