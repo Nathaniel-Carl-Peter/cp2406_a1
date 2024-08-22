@@ -114,17 +114,17 @@ namespace Records
 			string addr = employee.getAddress();
 			dbFile << addr;
 
-			string firstname = employee.getFirstName();
-			dbFile << firstname;
+			// string firstname = employee.getFirstName();
+			// dbFile << firstname;
 
-			string middlename = employee.getMiddleName();
-			dbFile << middlename;
+			// string middlename = employee.getMiddleName();
+			// dbFile << middlename;
 
-			string lastname = employee.getLastName();
-			dbFile << lastname;
+			// string lastname = employee.getLastName();
+			// dbFile << lastname;
 
 			std:: replace(addr.begin(), addr.end(), ',', ' ');
-			std:: replace(firstname.begin(), firstname.end(), ',', ' ');
+			// std:: replace(firstname.begin(), firstname.end(), ',', ' ');
 			// std:: replace(middlename.begin(), firstname.end(), ',', ' ');
 			// std:: replace(firstname.begin(), firstname.end(), ',', ' ');
 
@@ -170,8 +170,8 @@ namespace Records
     };
 
     vector<string> arrLast {
-    "last1", "Palettia","Doe",
-    "last2", "Palettia2","Doe2",
+    "last1", "Palettia","Smith",
+    "last2", "Palettia2","Smith2",
     };
 
     // Database res;
@@ -260,6 +260,14 @@ namespace Records
 		return db;
 	}
 
+	string getSearchStrMenu()
+	{
+		string searchTag;
+		cout << "Enter search string --> ";
+		cin >> searchTag;
+		return searchTag;
+	}
+
 	int displayseachMenu()
 	{
 		// Note:
@@ -275,9 +283,9 @@ namespace Records
 		cout << "Search by" << endl;
 		cout << "-----------------" << endl;
 		cout << "1) FirstName" << endl;
-		cout << "1) MiddleName" << endl;
-		cout << "1) LastName" << endl;
-		cout << "1) Address" << endl;
+		cout << "2) MiddleName" << endl;
+		cout << "3) LastName" << endl;
+		cout << "4) Address" << endl;
 		cout << "0) Quit" << endl;
 		cout << endl;
 		cout << "---> ";
@@ -316,13 +324,22 @@ namespace Records
 		// {
 		// 	cout << "Ignore saving empty file name" << endl;
 		// }
-
-		Database results;
+		string searchTag = getSearchStrMenu();
+		Database result;
 		for (const auto& e : mEmployees)
 		{
-			// const string& firstName = e.getFirstName();
-			auto& firstName = e.getFirstName();
-			cout << firstName << endl;
+			// check if matched tag
+			//https://cplusplus.com/reference/string/string/find/
+			//https://www.geeksforgeeks.org/string-find-in-cpp/
+			const string& firstName = e.getFirstName();
+			// auto& firstName = e.getFirstName();
+			size_t pos = firstName.find(searchTag, 0);
+			if (pos == string::npos) {
+				continue;
+			}
+			cout << firstName << endl;1
+			result.addEmployee(e);
 		}
+		return result;
 	}
 }
