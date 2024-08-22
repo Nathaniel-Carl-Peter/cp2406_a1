@@ -28,7 +28,8 @@ namespace Records {
 
 		void displayAll() const;
 		void saveToFile(const std::string& fileName) const;
-		void searchEmployee() const;
+		void searchMenu() const;
+		Database searchFirstName() const;
 		// void saveToFile(const string& fileName) const;
 		// void makeNewdb();
 		void displayCurrent() const;

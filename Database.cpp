@@ -86,56 +86,6 @@ namespace Records
 		}
 	}
 
-	int displayseachMenu()
-	{
-		// Note:
-		//		One important note is that this code assumes that the user will
-		//		"play nice" and type a number when a number is requested.
-		//		When you read about I/O in Chapter 13, you will learn how to
-		//		protect against bad input.
-
-		int selection;
-
-		cout << endl;
-		cout << "Search a Employee" << endl;
-		cout << "Search by" << endl;
-		cout << "-----------------" << endl;
-		cout << "1) FirstName" << endl;
-		cout << "1) MiddleName" << endl;
-		cout << "1) LastName" << endl;
-		cout << "1) Address" << endl;
-		cout << "0) Quit" << endl;
-		cout << endl;
-		cout << "---> ";
-
-		cin >> selection;
-		return selection;
-	}
-
-	void Database::searchEmployee() const
-	{
-		bool done = false;
-		while (!done) {
-			int selection = displayseachMenu();
-		switch (selection) 
-		{
-			case 0:
-				log("case0");
-				done = true;
-				break;
-			// case 1:
-			// 	doHire(employeeDB);
-			// 	break;
-			// case 2:
-			// 	doFire(employeeDB);
-			// 	break;
-		}
-		
-		return 0;
-	}
-
-	
-
 	void Database::saveToFile(const string &fileName) const
 	{
 		// if(fileName.size() == 0)
@@ -180,7 +130,7 @@ namespace Records
 
 
 			// dbFile << ", " << addr;
-			// dbFile << ", " << empl.getFirstName();
+			// dbFile << ", " << employee.getFirstName();
 			dbFile << endl;
 		}
 	}
@@ -240,7 +190,8 @@ namespace Records
                 // string
                 count ++;
                 string countStr = to_string(count);
-                Employee& empl= db.addEmployee(firstName, middleName, lastName);
+                Employee& empl= db.addEmployee(firstName, 
+									middleName, lastName);
                 // string address = to_string(count);
                 string address = countStr + "Street#" + countStr;
                 empl.setAddress(address);
@@ -307,5 +258,71 @@ namespace Records
 
 		log("end");
 		return db;
+	}
+
+	int displayseachMenu()
+	{
+		// Note:
+		//		One important note is that this code assumes that the user will
+		//		"play nice" and type a number when a number is requested.
+		//		When you read about I/O in Chapter 13, you will learn how to
+		//		protect against bad input.
+
+		int selection;
+
+		cout << endl;
+		cout << "Search a Employee" << endl;
+		cout << "Search by" << endl;
+		cout << "-----------------" << endl;
+		cout << "1) FirstName" << endl;
+		cout << "1) MiddleName" << endl;
+		cout << "1) LastName" << endl;
+		cout << "1) Address" << endl;
+		cout << "0) Quit" << endl;
+		cout << endl;
+		cout << "---> ";
+
+		cin >> selection;
+		return selection;
+	}
+
+	void Database::searchMenu() const
+	{
+		bool done = false;
+		Database searchResults;
+		while (!done) {
+			int selection = displayseachMenu();
+			switch (selection) {
+			case 0:
+				log("case0");
+				done = true;
+				break;
+			case 1:
+				searchResults = searchFirstName();
+				break;
+			// case 2:
+			// 	doFire(employeeDB);
+			// 	break;
+			default:
+				cerr << "Unknown command." << endl;
+				break;
+			}
+		}
+	}
+
+	Database Database::searchFirstName() const
+	{
+		// if(fileName.size() == 0)
+		// {
+		// 	cout << "Ignore saving empty file name" << endl;
+		// }
+
+		Database results;
+		for (const auto& e : mEmployees)
+		{
+			// const string& firstName = e.getFirstName();
+			auto& firstName = e.getFirstName();
+			cout << firstName << endl;
+		}
 	}
 }

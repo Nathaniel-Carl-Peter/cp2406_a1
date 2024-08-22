@@ -152,7 +152,7 @@ int main()
 			employeeDB = loadFile(dbFilename);
 			break;
         case 11:
-            // employeeDB.searchEmployee();
+            employeeDB.searchMenu();
             break;
 		default:
 			cerr << "Unknown command." << endl;
@@ -186,6 +186,7 @@ int displayMenu()
     cout << "7) Generate new Database" << endl;
     cout << "8) Save Database to File" << endl;
     cout << "9) Load database from file" << endl;
+    cout << "11) Search Employee" << endl;
     cout << "0) Quit" << endl;
     cout << endl;
     cout << "---> ";
