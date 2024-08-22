@@ -178,6 +178,7 @@ namespace Records
 
 	Database loadFile(const string& fileName)
 	{
+		log("start");
 
 		Database db;
 		ifstream dbFile(fileName, ios_base::trunc);
@@ -191,6 +192,17 @@ namespace Records
 		cout << header << endl;
 		log(header);
 		string line;
+
+		// Read contents of the file
+		// https://www.geeksforgeeks.org/read-a-file-line-by-line-in-cpp/
+		// https://www.w3schools.com/cpp/cpp_files.asp
+		
+		while (getline (dbFile, line)) 
+		{
+		// Output the text from the file
+		cout << line << "\n";
+		}
+
 		// if (getline(dbFile, header)) {
         // cout << header << endl;
         // // log(header); // Assuming log() is a function you've defined
@@ -263,6 +275,7 @@ namespace Records
 		// 	// Create a person and add it to the database.
 		// 	mEmployees.push_back(Employee{ move(firstName), move(lastName), move(middleName)});
 		// // }
-		// return db;
+		log("end");
+		return db;
 	}
 }
