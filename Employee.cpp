@@ -91,6 +91,13 @@ namespace Records {
 		mEmployeeNumber = employeeNumber;
 	}
 
+	void Employee::setEmployeeNumber(const string& employeeNumber)
+	{
+		int num = stoi(employeeNumber);
+		mEmployeeNumber = num;
+	}
+
+
 	int Employee::getEmployeeNumber() const
 	{
 		return mEmployeeNumber;

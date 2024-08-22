@@ -16,16 +16,23 @@ using namespace std;
 namespace Records
 {
 
-	Employee &Database::addEmployee(const string &firstName,
+	Employee &Database::addEmployee(const string &firstName, 
 									const string &lastName)
 	{
-		// log("start");
+		log("start");
 		Employee theEmployee(firstName, lastName);
 		theEmployee.setEmployeeNumber(mNextEmployeeNumber++);
 		theEmployee.hire();
 		mEmployees.push_back(theEmployee);
 
-		// log("end");
+		log("end");
+		return mEmployees[mEmployees.size() - 1];
+	}
+
+	Employee &Database::addEmployee(Employee empl)
+	{
+
+		mEmployees.push_back(empl);
 		return mEmployees[mEmployees.size() - 1];
 	}
 
@@ -35,14 +42,14 @@ namespace Records
 		const string &middleName,
 		const string &lastName)
 	{
-		// log("start");
+		log("start");
 
 		Employee theEmployee(firstName, middleName, lastName);
 		theEmployee.setEmployeeNumber(mNextEmployeeNumber++);
 		theEmployee.hire();
 		mEmployees.push_back(theEmployee);
 
-		// log("end");
+		log("end");
 		return mEmployees[mEmployees.size() - 1];
 	}
 
@@ -96,15 +103,29 @@ namespace Records
 
 		dbFile << "EmployeeNumber";
 		dbFile << ", " << "Address";
+		dbFile << ", " << "Firstname: ";
+		dbFile << endl;
 		for (const auto &employee : mEmployees)
 		{
 			string emplNumStr = to_string(employee.getEmployeeNumber());
 			dbFile << emplNumStr;
+
 			string addr = employee.getAddress();
+			dbFile << addr;
+
+			string firstname = employee.getFirstName();
+			dbFile << firstname;
+
+			string middlename = employee.getMiddleName();
+			dbFile << middlename;
+
+			string lastname = employee.getLastName();
+			dbFile << lastname;
 
 			std:: replace(addr.begin(), addr.end(), ',', ' ');
 
-			dbFile << ", " << addr;
+			// dbFile << ", " << addr;
+			// dbFile << ", " << empl.getFirstName();
 			dbFile << endl;
 		}
 	}
@@ -200,81 +221,35 @@ namespace Records
 		while (getline (dbFile, line)) 
 		{
 		// Output the text from the file
-		cout << line << "\n";
+			cout << line << "\n";
+
+			// stringstream inLine{ line };
+			// string firstName, lastName, initials;
+			// inLine >> (firstName) >> (lastName) >> (initials);
+			// if (inLine.bad()) {
+			// 	cerr << "Error reading person. Ignoring." << endl;
+			// 	continue;
+			vector<string> tokens;
+			stringstream streamFromLine(line);
+			string token;
+			while(getline(streamFromLine, token, ','))
+			{
+				tokens.push_back(token);
+			}
+
+			string emplNumStr = tokens[Employee::CSV_INDEX_EMPLOYEE_NUM];
+			string address = tokens[Employee::CSV_INDEX_EMPLOYEE_NUM];
+			Employee empl("", "");
+			empl.setAddress(address);
+			empl.setEmployeeNumber(emplNumStr);
+			// Add all fields
+			db.addEmployee(empl);
+
+			// Create a person and add it to the database.
+
+			// mEmployees.push_back(theEmployee);
 		}
 
-		// if (getline(dbFile, header)) {
-        // cout << header << endl;
-        // // log(header); // Assuming log() is a function you've defined
-		// } else {
-		// 	cerr << "Failed to read the header from the file." << endl;
-		// 	log(header);
-		// 	return db;
-		// }
-
-		// while (getline(dbFile, header)) 
-		// {
-		// 	cout << header << endl;
-		// 	// log(header); // Assuming log() is a function you've defined
-
-		// 	cout << line << "\n";
-		// 	vector <string> tokens;
-		// 	stringstream check1(line);
-		// 	string token;
-		// 	while (getline(streamFromLine, token, ','))
-		// 	{
-		// 		tokens.push_back(token);
-		// 	}
-		// 	string emplyNumStr = token[Employee::CSV_INDEX_EMPLOYEE_NUM];
-		// 	string address = token[Employee::CSV_INDEX_ADDRESS];
-		// }
-
-		// getline(inFile, line);
-		// for (const auto &employee : mEmployees)
-		// {
-		// 	string emplNumStr = to_string(employee.getEmployeeNumber());
-		// 	dbFile << emplNumStr;
-		// 	string addr = employee.getAddress();
-
-		// 	std::replace(addr.begin(), addr.end(), ',', ' ');
-
-		// 	dbFile << ", " << addr;
-		// 	dbFile << endl;
-		// }
-
-		// while (inFile) {
-
-		// }
-		// return;
-
-		
-		// ifstream inFile{ fileName.data() };
-		// if (!inFile) {
-		// 	cerr << "Cannot open file: " << fileName << endl;
-		// 	return;
-		// }
-
-		// while (inFile) {
-		// 	// Read line by line, so we can skip empty lines.
-		// 	// The last line in the file is empty, for example.
-		// 	string line;
-		// 	getline(inFile, line);
-		// 	if (line.empty()) { // Skip empty lines
-		// 		continue;
-		// 	}
-
-		// 	// Make a string stream and parse it.
-		// 	istringstream inLine{ line };
-		// 	string firstName, lastName, middleName;
-		// 	inLine >> quoted(firstName) >> quoted(lastName) >> quoted(middleName);
-		// 	if (inLine.bad()) {
-		// 		cerr << "Error reading person. Ignoring." << endl;
-		// 		continue;
-		// 	}
-
-		// 	// Create a person and add it to the database.
-		// 	mEmployees.push_back(Employee{ move(firstName), move(lastName), move(middleName)});
-		// // }
 		log("end");
 		return db;
 	}

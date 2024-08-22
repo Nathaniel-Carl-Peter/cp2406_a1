@@ -47,6 +47,7 @@ namespace Records {
 
 
 		void setEmployeeNumber(int employeeNumber);
+		void setEmployeeNumber(const std::string& employeeNumber);
 		int getEmployeeNumber() const;
 
 		void setSalary(int newSalary);

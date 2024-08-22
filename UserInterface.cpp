@@ -104,65 +104,65 @@ void doDemote(Database& db);
     
 // }
 
-// int main()
-// {
-//     log("start");
+int main()
+{
+    log("start");
 
-// 	Database employeeDB;
-//     string dbFilename = "save_db.txt";
+	Database employeeDB;
+    string dbFilename = "save_db.txt";
 
-// 	bool done = false;
-// 	while (!done) {
-// 		int selection = displayMenu();
-// 		switch (selection) {
-// 		case 0:
-//             log("case0");
-// 			done = true;
-// 			break;
-// 		case 1:
-// 			doHire(employeeDB);
-// 			break;
-// 		case 2:
-// 			doFire(employeeDB);
-// 			break;
-// 		case 3:
-// 			doPromote(employeeDB);
-// 			break;
-// 		case 4:
-// 			employeeDB.displayAll();
-// 			break;
-// 		case 5:
-// 			employeeDB.displayCurrent();
-// 			break;
-// 		case 6:
-// 			employeeDB.displayFormer();
-// 			break;
+	bool done = false;
+	while (!done) {
+		int selection = displayMenu();
+		switch (selection) {
+		case 0:
+            log("case0");
+			done = true;
+			break;
+		case 1:
+			doHire(employeeDB);
+			break;
+		case 2:
+			doFire(employeeDB);
+			break;
+		case 3:
+			doPromote(employeeDB);
+			break;
+		case 4:
+			employeeDB.displayAll();
+			break;
+		case 5:
+			employeeDB.displayCurrent();
+			break;
+		case 6:
+			employeeDB.displayFormer();
+			break;
         
-//         case 7:
-// 			employeeDB = makeNewDB();
-//             // DB = Data Base
-// 			break;
-//         case 8:
-//             //Save to file
-//             // dbFilename = selectInputFilename(dbFilename);
-// 			employeeDB.saveToFile(dbFilename);
-// 			break;
-//         case 9:
-//         //     dbFileName = selectInputFilename(dbFilename);
-// 			employeeDB = loadFile(dbFilename);
-// 			break;
-//         // case 11:
-//         //     employeeDB.searchMenu();
-//         //     break;
-// 		default:
-// 			cerr << "Unknown command." << endl;
-// 			break;
-// 		}
-// 	}
+        case 7:
+			employeeDB = makeNewDB();
+            // DB = Data Base
+			break;
+        case 8:
+            //Save to file
+            // dbFilename = selectInputFilename(dbFilename);
+			employeeDB.saveToFile(dbFilename);
+			break;
+        case 9:
+        //     dbFileName = selectInputFilename(dbFilename);
+			employeeDB = loadFile(dbFilename);
+			break;
+        // case 11:
+        //     employeeDB.searchMenu();
+        //     break;
+		default:
+			cerr << "Unknown command." << endl;
+			break;
+		}
+	}
 
-//     return 0;
-//     log("end");
-// }
+    return 0;
+    log("end");
+}
 
 int displayMenu()
 {

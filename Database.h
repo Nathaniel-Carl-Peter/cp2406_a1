@@ -16,6 +16,7 @@ namespace Records {
 		Employee& addEmployee(const std::string& firstName,
 							  const std::string& lastName);
 		
+		Employee& addEmployee(Employee empl);
 		// Function overide occuring
 		Employee& addEmployee(
 			const std::string& firstName,
