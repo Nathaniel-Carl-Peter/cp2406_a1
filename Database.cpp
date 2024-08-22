@@ -103,7 +103,9 @@ namespace Records
 
 		dbFile << "EmployeeNumber";
 		dbFile << ", " << "Address";
-		dbFile << ", " << "Firstname: ";
+		dbFile << ", " << "Firstname:";
+		dbFile << ", " << "Middlename:";
+		dbFile << ", " << "Lastname";
 		dbFile << endl;
 		for (const auto &employee : mEmployees)
 		{
@@ -123,6 +125,10 @@ namespace Records
 			dbFile << lastname;
 
 			std:: replace(addr.begin(), addr.end(), ',', ' ');
+			std:: replace(firstname.begin(), firstname.end(), ',', ' ');
+			// std:: replace(middlename.begin(), firstname.end(), ',', ' ');
+			// std:: replace(firstname.begin(), firstname.end(), ',', ' ');
+
 
 			// dbFile << ", " << addr;
 			// dbFile << ", " << empl.getFirstName();
