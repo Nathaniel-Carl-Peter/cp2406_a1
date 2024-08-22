@@ -308,9 +308,12 @@ namespace Records
 			case 1:
 				searchResults = searchFirstName();
 				break;
-			// case 2:
-			// 	doFire(employeeDB);
-			// 	break;
+			case 2:
+				searchResults = searchMiddleName();
+				break;
+			case 3:
+				searchResults = searchLasttName();
+				break;
 			default:
 				cerr << "Unknown command." << endl;
 				break;
@@ -338,6 +341,56 @@ namespace Records
 				continue;
 			}
 			cout << firstName << endl;
+			result.addEmployee(e);
+		}
+		return result;
+	}
+
+	Database Database::searchMiddleName() const
+	{
+		// if(fileName.size() == 0)
+		// {
+		// 	cout << "Ignore saving empty file name" << endl;
+		// }
+		string searchTag = getSearchStrMenu();
+		Database result;
+		for (const auto& e : mEmployees)
+		{
+			// check if matched tag
+			//https://cplusplus.com/reference/string/string/find/
+			//https://www.geeksforgeeks.org/string-find-in-cpp/
+			const string& middleName = e.getMiddleName();
+			// auto& firstName = e.getFirstName();
+			size_t pos = middleName.find(searchTag, 0);
+			if (pos == string::npos) {
+				continue;
+			}
+			cout <<  middleName << endl;
+			result.addEmployee(e);
+		}
+		return result;
+	}
+
+	Database Database::searchLasttName() const
+	{
+		// if(fileName.size() == 0)
+		// {
+		// 	cout << "Ignore saving empty file name" << endl;
+		// }
+		string searchTag = getSearchStrMenu();
+		Database result;
+		for (const auto& e : mEmployees)
+		{
+			// check if matched tag
+			//https://cplusplus.com/reference/string/string/find/
+			//https://www.geeksforgeeks.org/string-find-in-cpp/
+			const string& lastName = e.getLastName();
+			// auto& firstName = e.getFirstName();
+			size_t pos = lastName.find(searchTag, 0);
+			if (pos == string::npos) {
+				continue;
+			}
+			cout <<  lastName << endl;
 			result.addEmployee(e);
 		}
 		return result;

@@ -30,6 +30,8 @@ namespace Records {
 		void saveToFile(const std::string& fileName) const;
 		void searchMenu() const;
 		Database searchFirstName() const;
+		Database searchMiddleName() const;
+		Database searchLasttName() const;
 		// void saveToFile(const string& fileName) const;
 		// void makeNewdb();
 		void displayCurrent() const;
